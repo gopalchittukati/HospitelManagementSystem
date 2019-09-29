@@ -11,7 +11,7 @@ import com.healthcare.f22b_9healthcare.entity.Appointment;
 @Repository
 public interface AppointmentDao extends JpaRepository<Appointment, Long> {
 
-	@Query("select a.id , a.primaryReason , p.name, p.date, p.phone from Appointment a "
+@Query("select a.id , a.primaryReason , p.name, p.date, p.phone from Appointment a "
 			+ "join a.patient p "
 			+ "where a.dateTime=?1")
 	public List<Object[]> getAppointAndPatientByDate(Date date);
